@@ -1,10 +1,12 @@
 package com.example.stock_management_system.controller;
 
+import com.example.stock_management_system.domain.OrderStatus;
 import com.example.stock_management_system.domain.StockOrder;
 import com.example.stock_management_system.service.StockOrderService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
@@ -27,6 +29,18 @@ public class StockOrderController {
     @GetMapping("/all")
     public ResponseEntity<List<StockOrder>> getAllStockOrders() {
         return new ResponseEntity<>(stockOrderService.getAllStockOrders(), HttpStatus.OK);
+    }
+
+    @GetMapping("/by-status")
+    public ResponseEntity<List<StockOrder>> getStockOrdersByStatus(@RequestParam OrderStatus status) {
+        return new ResponseEntity<>(stockOrderService.getStockOrdersByStatus(status), HttpStatus.OK);
+    }
+
+    @GetMapping("/between")
+    public ResponseEntity<List<StockOrder>> getStockOrdersBetween(@RequestParam String start, @RequestParam String end) {
+        LocalDate startDate = LocalDate.parse(start);
+        LocalDate endDate = LocalDate.parse(end);
+        return new ResponseEntity<>(stockOrderService.getStockOrdersBetween(startDate, endDate), HttpStatus.OK);
     }
 
     @GetMapping("/{id}")

@@ -29,6 +29,11 @@ public class SupplierController {
         return new ResponseEntity<>(supplierService.getAllSuppliers(), HttpStatus.OK);
     }
 
+    @GetMapping("/by-contact-person")
+    public ResponseEntity<List<Supplier>> getSuppliersByContactPerson(@RequestParam String contactPerson) {
+        return new ResponseEntity<>(supplierService.getSuppliersByContactPerson(contactPerson), HttpStatus.OK);
+    }
+
     @GetMapping("/{id}")
     public ResponseEntity<?> getSupplierById(@PathVariable UUID id) {
         Optional<Supplier> supplier = supplierService.getSupplierById(id);

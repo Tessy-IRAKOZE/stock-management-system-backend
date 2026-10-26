@@ -1,8 +1,10 @@
 package com.example.stock_management_system.service;
 
+import com.example.stock_management_system.domain.OrderStatus;
 import com.example.stock_management_system.domain.StockOrder;
 import com.example.stock_management_system.repository.StockOrderRepository;
 import org.springframework.stereotype.Service;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
@@ -50,5 +52,13 @@ public class StockOrderService {
         }
         stockOrderRepository.deleteById(id);
         return "Stock order deleted successfully";
+    }
+
+    public List<StockOrder> getStockOrdersByStatus(OrderStatus status) {
+        return stockOrderRepository.findByStatusOrderByOrderDateAsc(status);
+    }
+
+    public List<StockOrder> getStockOrdersBetween(LocalDate start, LocalDate end) {
+        return stockOrderRepository.findByOrderDateBetweenOrderByOrderDateAsc(start, end);
     }
 }
