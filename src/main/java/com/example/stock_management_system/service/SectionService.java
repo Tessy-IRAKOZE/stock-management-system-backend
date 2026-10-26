@@ -46,4 +46,8 @@ public class SectionService {
         sectionRepository.deleteById(id);
         return "Section deleted successfully";
     }
+
+    public List<Section> getUnusedSections() {
+        return sectionRepository.findUnusedSections();
+    }
 }

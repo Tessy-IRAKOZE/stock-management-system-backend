@@ -29,6 +29,11 @@ public class WarehouseController {
         return new ResponseEntity<>(warehouseService.getAllWarehouses(), HttpStatus.OK);
     }
 
+    @GetMapping("/free")
+    public ResponseEntity<List<Warehouse>> getFreeWarehouses() {
+        return new ResponseEntity<>(warehouseService.getFreeWarehouses(), HttpStatus.OK);
+    }
+
     @GetMapping("/{id}")
     public ResponseEntity<?> getWarehouseById(@PathVariable UUID id) {
         Optional<Warehouse> warehouse = warehouseService.getWarehouseById(id);

@@ -50,4 +50,8 @@ public class StoreKeeperService {
         storeKeeperRepository.deleteById(id);
         return "Store keeper deleted successfully";
     }
+
+    public List<StoreKeeper> getStoreKeepersBySection(String name) {
+        return storeKeeperRepository.findStoreKeepersBySection(name);
+    }
 }

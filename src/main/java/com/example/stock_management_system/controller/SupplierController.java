@@ -1,6 +1,7 @@
 package com.example.stock_management_system.controller;
 
 import com.example.stock_management_system.domain.Supplier;
+import com.example.stock_management_system.service.StoreKeeperService;
 import com.example.stock_management_system.service.SupplierService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,9 +14,11 @@ import java.util.UUID;
 @RequestMapping("/api/suppliers")
 public class SupplierController {
     private final SupplierService supplierService;
+    private final StoreKeeperService storeKeeperService;
 
-    public SupplierController(SupplierService supplierService) {
+    public SupplierController(SupplierService supplierService, StoreKeeperService storeKeeperService) {
         this.supplierService = supplierService;
+        this.storeKeeperService = storeKeeperService;
     }
 
     @PostMapping("/save")
@@ -32,6 +35,15 @@ public class SupplierController {
     @GetMapping("/by-contact-person")
     public ResponseEntity<List<Supplier>> getSuppliersByContactPerson(@RequestParam String contactPerson) {
         return new ResponseEntity<>(supplierService.getSuppliersByContactPerson(contactPerson), HttpStatus.OK);
+    }
+
+    @GetMapping("/of-store-keeper/{storeKeeperId}")
+    public ResponseEntity<?> getSuppliersOfStoreKeeper(@PathVariable UUID storeKeeperId) {
+        if (storeKeeperService.getStoreKeeperById(storeKeeperId).isEmpty()) {
+            return new ResponseEntity<>("The store keeper with that id does not exist", HttpStatus.NOT_FOUND);
+        } else {
+            return new ResponseEntity<>(supplierService.getSuppliersOfStoreKeeper(storeKeeperId), HttpStatus.OK);
+        }
     }
 
     @GetMapping("/{id}")

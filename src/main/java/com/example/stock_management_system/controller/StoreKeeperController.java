@@ -29,6 +29,11 @@ public class StoreKeeperController {
         return new ResponseEntity<>(storeKeeperService.getAllStoreKeepers(), HttpStatus.OK);
     }
 
+    @GetMapping("/by-section")
+    public ResponseEntity<List<StoreKeeper>> getStoreKeepersBySection(@RequestParam String name) {
+        return new ResponseEntity<>(storeKeeperService.getStoreKeepersBySection(name), HttpStatus.OK);
+    }
+
     @GetMapping("/{id}")
     public ResponseEntity<?> getStoreKeeperById(@PathVariable UUID id) {
         Optional<StoreKeeper> storeKeeper = storeKeeperService.getStoreKeeperById(id);

@@ -47,4 +47,8 @@ public class WarehouseService {
         warehouseRepository.deleteById(id);
         return "Warehouse deleted successfully";
     }
+
+    public List<Warehouse> getFreeWarehouses() {
+        return warehouseRepository.findFreeWarehouses();
+    }
 }

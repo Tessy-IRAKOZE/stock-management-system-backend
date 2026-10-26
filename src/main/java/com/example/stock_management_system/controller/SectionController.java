@@ -29,6 +29,11 @@ public class SectionController {
         return new ResponseEntity<>(sectionService.getAllSections(), HttpStatus.OK);
     }
 
+    @GetMapping("/unused")
+    public ResponseEntity<List<Section>> getUnusedSections() {
+        return new ResponseEntity<>(sectionService.getUnusedSections(), HttpStatus.OK);
+    }
+
     @GetMapping("/{id}")
     public ResponseEntity<?> getSectionById(@PathVariable UUID id) {
         Optional<Section> section = sectionService.getSectionById(id);

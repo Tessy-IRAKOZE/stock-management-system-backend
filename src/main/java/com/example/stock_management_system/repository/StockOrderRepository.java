@@ -9,6 +9,5 @@ import java.util.UUID;
 
 public interface StockOrderRepository extends JpaRepository<StockOrder, UUID> {
     List<StockOrder> findByStatusOrderByOrderDateAsc(OrderStatus status);
-
     List<StockOrder> findByOrderDateBetweenOrderByOrderDateAsc(LocalDate start, LocalDate end);
 }

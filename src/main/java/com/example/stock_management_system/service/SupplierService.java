@@ -54,4 +54,8 @@ public class SupplierService {
     public List<Supplier> getSuppliersByContactPerson(String contactPerson) {
         return supplierRepository.findByContactPersonIgnoreCaseOrderByCompanyNameAsc(contactPerson);
     }
+
+    public List<Supplier> getSuppliersOfStoreKeeper(UUID storeKeeperId) {
+        return supplierRepository.findSuppliersOfStoreKeeper(storeKeeperId);
+    }
 }
