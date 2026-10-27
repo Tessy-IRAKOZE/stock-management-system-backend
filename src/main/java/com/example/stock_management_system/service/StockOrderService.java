@@ -18,6 +18,13 @@ public class StockOrderService {
     }
 
     public String saveStockOrder(StockOrder stockOrder) {
+        if (stockOrder.getOrderDate().isBefore(LocalDate.now())) {
+            return "Stock order date cannot be in the past";
+        }
+        if (stockOrderRepository.existsByStoreKeeperAndOrderDateAndStatusNot(stockOrder.getStoreKeeper(), stockOrder.getOrderDate(), OrderStatus.CANCELLED)) {
+            return "Store keeper already receives another order on that date";
+        }
+        stockOrder.setStatus(OrderStatus.PLACED);
         stockOrderRepository.save(stockOrder);
         return "Stock order saved successfully";
     }
@@ -37,7 +44,6 @@ public class StockOrderService {
         }
         StockOrder s = existing.get();
         s.setOrderDate(stockOrder.getOrderDate());
-        s.setStatus(stockOrder.getStatus());
         s.setReference(stockOrder.getReference());
         s.setTotalAmount(stockOrder.getTotalAmount());
         s.setSupplier(stockOrder.getSupplier());
@@ -52,6 +58,28 @@ public class StockOrderService {
         }
         stockOrderRepository.deleteById(id);
         return "Stock order deleted successfully";
+    }
+
+    public String updateStockOrderStatus(UUID id, OrderStatus newStatus) {
+        Optional<StockOrder> existing = stockOrderRepository.findById(id);
+        if (existing.isEmpty()) {
+            return "The stock order with that id does not exist";
+        }
+        StockOrder s = existing.get();
+        OrderStatus current = s.getStatus();
+        boolean allowed = false;
+        if (current == OrderStatus.PLACED && (newStatus == OrderStatus.APPROVED || newStatus == OrderStatus.CANCELLED)) {
+            allowed = true;
+        }
+        if (current == OrderStatus.APPROVED && (newStatus == OrderStatus.RECEIVED || newStatus == OrderStatus.CANCELLED)) {
+            allowed = true;
+        }
+        if (!allowed) {
+            return "Cannot change status from " + current + " to " + newStatus;
+        }
+        s.setStatus(newStatus);
+        stockOrderRepository.save(s);
+        return "Stock order status updated successfully";
     }
 
     public List<StockOrder> getStockOrdersByStatus(OrderStatus status) {

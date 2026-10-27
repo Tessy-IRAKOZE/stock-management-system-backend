@@ -23,7 +23,13 @@ public class StockOrderController {
     @PostMapping("/save")
     public ResponseEntity<String> saveStockOrder(@RequestBody StockOrder stockOrder) {
         String message = stockOrderService.saveStockOrder(stockOrder);
-        return new ResponseEntity<>(message, HttpStatus.CREATED);
+        if (message.equals("Stock order date cannot be in the past")) {
+            return new ResponseEntity<>(message, HttpStatus.BAD_REQUEST);
+        } else if (message.equals("Store keeper already receives another order on that date")) {
+            return new ResponseEntity<>(message, HttpStatus.CONFLICT);
+        } else {
+            return new ResponseEntity<>(message, HttpStatus.CREATED);
+        }
     }
 
     @GetMapping("/all")
@@ -58,6 +64,18 @@ public class StockOrderController {
         String message = stockOrderService.updateStockOrder(id, stockOrder);
         if (message.equals("The stock order with that id does not exist")) {
             return new ResponseEntity<>(message, HttpStatus.NOT_FOUND);
+        } else {
+            return new ResponseEntity<>(message, HttpStatus.OK);
+        }
+    }
+
+    @PatchMapping("/{id}/status")
+    public ResponseEntity<String> updateStockOrderStatus(@PathVariable UUID id, @RequestParam OrderStatus status) {
+        String message = stockOrderService.updateStockOrderStatus(id, status);
+        if (message.equals("The stock order with that id does not exist")) {
+            return new ResponseEntity<>(message, HttpStatus.NOT_FOUND);
+        } else if (message.startsWith("Cannot change status from")) {
+            return new ResponseEntity<>(message, HttpStatus.BAD_REQUEST);
         } else {
             return new ResponseEntity<>(message, HttpStatus.OK);
         }

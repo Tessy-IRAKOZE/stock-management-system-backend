@@ -54,6 +54,30 @@ public class StoreKeeperController {
         }
     }
 
+    @PutMapping("/{storeKeeperId}/sections/{sectionId}")
+    public ResponseEntity<String> addSectionToStoreKeeper(@PathVariable UUID storeKeeperId, @PathVariable UUID sectionId) {
+        String message = storeKeeperService.addSectionToStoreKeeper(storeKeeperId, sectionId);
+        if (message.equals("The store keeper with that id does not exist") || message.equals("That section does not exist")) {
+            return new ResponseEntity<>(message, HttpStatus.NOT_FOUND);
+        } else if (message.equals("The store keeper already has that section")) {
+            return new ResponseEntity<>(message, HttpStatus.CONFLICT);
+        } else {
+            return new ResponseEntity<>(message, HttpStatus.OK);
+        }
+    }
+
+    @PatchMapping("/{storeKeeperId}/warehouse")
+    public ResponseEntity<String> changeWarehouse(@PathVariable UUID storeKeeperId, @RequestParam int warehouseNumber) {
+        String message = storeKeeperService.changeWarehouse(storeKeeperId, warehouseNumber);
+        if (message.equals("The store keeper with that id does not exist") || message.equals("The warehouse with that warehouseNumber does not exist")) {
+            return new ResponseEntity<>(message, HttpStatus.NOT_FOUND);
+        } else if (message.equals("That warehouse is taken by another store keeper")) {
+            return new ResponseEntity<>(message, HttpStatus.CONFLICT);
+        } else {
+            return new ResponseEntity<>(message, HttpStatus.OK);
+        }
+    }
+
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<String> deleteStoreKeeper(@PathVariable UUID id) {
         String message = storeKeeperService.deleteStoreKeeper(id);
