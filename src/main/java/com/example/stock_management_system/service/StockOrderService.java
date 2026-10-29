@@ -2,6 +2,7 @@ package com.example.stock_management_system.service;
 
 import com.example.stock_management_system.domain.OrderStatus;
 import com.example.stock_management_system.domain.StockOrder;
+import com.example.stock_management_system.repository.ReceivedItemRepository;
 import com.example.stock_management_system.repository.StockOrderRepository;
 import org.springframework.stereotype.Service;
 import java.time.LocalDate;
@@ -12,9 +13,11 @@ import java.util.UUID;
 @Service
 public class StockOrderService {
     private final StockOrderRepository stockOrderRepository;
+    private final ReceivedItemRepository receivedItemRepository;
 
-    public StockOrderService(StockOrderRepository stockOrderRepository) {
+    public StockOrderService(StockOrderRepository stockOrderRepository, ReceivedItemRepository receivedItemRepository) {
         this.stockOrderRepository = stockOrderRepository;
+        this.receivedItemRepository = receivedItemRepository;
     }
 
     public String saveStockOrder(StockOrder stockOrder) {
@@ -53,8 +56,12 @@ public class StockOrderService {
     }
 
     public String deleteStockOrder(UUID id) {
-        if (!stockOrderRepository.existsById(id)) {
+        Optional<StockOrder> existing = stockOrderRepository.findById(id);
+        if (existing.isEmpty()) {
             return "The stock order with that id does not exist";
+        }
+        if (receivedItemRepository.existsByStockOrder(existing.get())) {
+            return "That stock order has received items, delete them first";
         }
         stockOrderRepository.deleteById(id);
         return "Stock order deleted successfully";

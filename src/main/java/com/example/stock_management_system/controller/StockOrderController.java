@@ -86,6 +86,8 @@ public class StockOrderController {
         String message = stockOrderService.deleteStockOrder(id);
         if (message.equals("The stock order with that id does not exist")) {
             return new ResponseEntity<>(message, HttpStatus.NOT_FOUND);
+        } else if (message.equals("That stock order has received items, delete them first")) {
+            return new ResponseEntity<>(message, HttpStatus.CONFLICT);
         } else {
             return new ResponseEntity<>(message, HttpStatus.OK);
         }
