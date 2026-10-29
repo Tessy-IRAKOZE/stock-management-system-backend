@@ -5,6 +5,7 @@ import com.example.stock_management_system.domain.StockOrder;
 import com.example.stock_management_system.repository.ReceivedItemRepository;
 import com.example.stock_management_system.repository.StockOrderRepository;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
@@ -95,5 +96,15 @@ public class StockOrderService {
 
     public List<StockOrder> getStockOrdersBetween(LocalDate start, LocalDate end) {
         return stockOrderRepository.findByOrderDateBetweenOrderByOrderDateAsc(start, end);
+    }
+
+    public List<Object[]> getStockOrderStatsByStatus() {
+        return stockOrderRepository.countStockOrdersByStatus();
+    }
+
+    @Transactional
+    public String cancelDay(UUID storeKeeperId, LocalDate date) {
+        int count = stockOrderRepository.cancelDay(storeKeeperId, date, OrderStatus.CANCELLED, OrderStatus.RECEIVED);
+        return count + " stock orders cancelled";
     }
 }

@@ -49,6 +49,17 @@ public class StockOrderController {
         return new ResponseEntity<>(stockOrderService.getStockOrdersBetween(startDate, endDate), HttpStatus.OK);
     }
 
+    @GetMapping("/stats/by-status")
+    public ResponseEntity<List<Object[]>> getStockOrderStatsByStatus() {
+        return new ResponseEntity<>(stockOrderService.getStockOrderStatsByStatus(), HttpStatus.OK);
+    }
+
+    @PatchMapping("/cancel-day")
+    public ResponseEntity<String> cancelDay(@RequestParam UUID storeKeeperId, @RequestParam String date) {
+        LocalDate day = LocalDate.parse(date);
+        return new ResponseEntity<>(stockOrderService.cancelDay(storeKeeperId, day), HttpStatus.OK);
+    }
+
     @GetMapping("/{id}")
     public ResponseEntity<?> getStockOrderById(@PathVariable UUID id) {
         Optional<StockOrder> stockOrder = stockOrderService.getStockOrderById(id);
