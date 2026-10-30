@@ -20,4 +20,6 @@ public interface StockOrderRepository extends JpaRepository<StockOrder, UUID> {
     @Modifying
     @Query("UPDATE StockOrder s SET s.status = :cancelled WHERE s.storeKeeper.id = :storeKeeperId AND s.orderDate = :date AND s.status <> :received")
     int cancelDay(@Param("storeKeeperId") UUID storeKeeperId, @Param("date") LocalDate date, @Param("cancelled") OrderStatus cancelled, @Param("received") OrderStatus received);
+    long countByOrderDate(LocalDate orderDate);
+    long countByStatus(OrderStatus status);
 }

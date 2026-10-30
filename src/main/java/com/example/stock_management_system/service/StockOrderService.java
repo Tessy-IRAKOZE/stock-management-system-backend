@@ -4,6 +4,8 @@ import com.example.stock_management_system.domain.OrderStatus;
 import com.example.stock_management_system.domain.StockOrder;
 import com.example.stock_management_system.repository.ReceivedItemRepository;
 import com.example.stock_management_system.repository.StockOrderRepository;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import java.time.LocalDate;
@@ -106,5 +108,9 @@ public class StockOrderService {
     public String cancelDay(UUID storeKeeperId, LocalDate date) {
         int count = stockOrderRepository.cancelDay(storeKeeperId, date, OrderStatus.CANCELLED, OrderStatus.RECEIVED);
         return count + " stock orders cancelled";
+    }
+
+    public Page<StockOrder> getStockOrdersPage(Pageable pageable) {
+        return stockOrderRepository.findAll(pageable);
     }
 }

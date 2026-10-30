@@ -3,6 +3,10 @@ package com.example.stock_management_system.controller;
 import com.example.stock_management_system.domain.OrderStatus;
 import com.example.stock_management_system.domain.StockOrder;
 import com.example.stock_management_system.service.StockOrderService;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -58,6 +62,17 @@ public class StockOrderController {
     public ResponseEntity<String> cancelDay(@RequestParam UUID storeKeeperId, @RequestParam String date) {
         LocalDate day = LocalDate.parse(date);
         return new ResponseEntity<>(stockOrderService.cancelDay(storeKeeperId, day), HttpStatus.OK);
+    }
+
+    @GetMapping("/page")
+    public ResponseEntity<Page<StockOrder>> getStockOrdersPage(@RequestParam int page, @RequestParam int size, @RequestParam String sort) {
+        String[] parts = sort.split(",");
+        Sort sorting = Sort.by(parts[0]).ascending();
+        if (parts.length > 1 && parts[1].equals("desc")) {
+            sorting = Sort.by(parts[0]).descending();
+        }
+        Pageable pageable = PageRequest.of(page, size, sorting);
+        return new ResponseEntity<>(stockOrderService.getStockOrdersPage(pageable), HttpStatus.OK);
     }
 
     @GetMapping("/{id}")
