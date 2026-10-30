@@ -1,0 +1,1207 @@
+{
+  "info": {
+    "name": "stock-management-system-midterm",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Part A",
+      "item": [
+        {
+          "name": "A2",
+          "item": [
+            {
+              "name": "save section",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "http://localhost:8082/api/sections/save",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8082",
+                  "path": [
+                    "api",
+                    "sections",
+                    "save"
+                  ]
+                },
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\"name\": \"Electronics\"}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "get all sections",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:8082/api/sections/all",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8082",
+                  "path": [
+                    "api",
+                    "sections",
+                    "all"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "get by id",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:8082/api/sections/2e262bfc-d5e3-418c-906b-ac946ec2307e",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8082",
+                  "path": [
+                    "api",
+                    "sections",
+                    "2e262bfc-d5e3-418c-906b-ac946ec2307e"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "update section",
+              "request": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "http://localhost:8082/api/sections/update/2e262bfc-d5e3-418c-906b-ac946ec2307e",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8082",
+                  "path": [
+                    "api",
+                    "sections",
+                    "update",
+                    "2e262bfc-d5e3-418c-906b-ac946ec2307e"
+                  ]
+                },
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\"name\": \"Electronics and Appliances\"}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "delete section",
+              "request": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:8082/api/sections/delete/2e262bfc-d5e3-418c-906b-ac946ec2307e",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8082",
+                  "path": [
+                    "api",
+                    "sections",
+                    "delete",
+                    "2e262bfc-d5e3-418c-906b-ac946ec2307e"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "save warehouse",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "http://localhost:8082/api/warehouses/save",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8082",
+                  "path": [
+                    "api",
+                    "warehouses",
+                    "save"
+                  ]
+                },
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\"warehouseNumber\": 5, \"name\": \"Gikondo Store\"}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "get all warehouses",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:8082/api/warehouses/all",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8082",
+                  "path": [
+                    "api",
+                    "warehouses",
+                    "all"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "get by id",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:8082/api/warehouses/11f3c60a-8fb6-4794-a17f-44f94943bee4",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8082",
+                  "path": [
+                    "api",
+                    "warehouses",
+                    "11f3c60a-8fb6-4794-a17f-44f94943bee4"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "update warehouse",
+              "request": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "http://localhost:8082/api/warehouses/update/11f3c60a-8fb6-4794-a17f-44f94943bee4",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8082",
+                  "path": [
+                    "api",
+                    "warehouses",
+                    "update",
+                    "11f3c60a-8fb6-4794-a17f-44f94943bee4"
+                  ]
+                },
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\"warehouseNumber\": 5, \"name\": \"Gikondo Industrial Store\"}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "delete warehouse",
+              "request": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:8082/api/warehouses/delete/11f3c60a-8fb6-4794-a17f-44f94943bee4",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8082",
+                  "path": [
+                    "api",
+                    "warehouses",
+                    "delete",
+                    "11f3c60a-8fb6-4794-a17f-44f94943bee4"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "save store-keeper",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "http://localhost:8082/api/store-keepers/save",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8082",
+                  "path": [
+                    "api",
+                    "store-keepers",
+                    "save"
+                  ]
+                },
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\"firstName\": \"Grace\", \"lastName\": \"Ingabire\", \"phone\": \"0788000004\"}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "get all storekeepers",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:8082/api/store-keepers/all",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8082",
+                  "path": [
+                    "api",
+                    "store-keepers",
+                    "all"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "get by id",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:8082/api/store-keepers/f97616a2-73f4-465f-aaa0-5a22666ca9fe",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8082",
+                  "path": [
+                    "api",
+                    "store-keepers",
+                    "f97616a2-73f4-465f-aaa0-5a22666ca9fe"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "update storekeeper",
+              "request": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "http://localhost:8082/api/store-keepers/update/f97616a2-73f4-465f-aaa0-5a22666ca9fe",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8082",
+                  "path": [
+                    "api",
+                    "store-keepers",
+                    "update",
+                    "f97616a2-73f4-465f-aaa0-5a22666ca9fe"
+                  ]
+                },
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\"firstName\": \"Grace\", \"lastName\": \"Ingabire\", \"phone\": \"0722000004\"}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "delete storekeeper",
+              "request": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:8082/api/store-keepers/delete/f97616a2-73f4-465f-aaa0-5a22666ca9fe",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8082",
+                  "path": [
+                    "api",
+                    "store-keepers",
+                    "delete",
+                    "f97616a2-73f4-465f-aaa0-5a22666ca9fe"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "save supplier",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "http://localhost:8082/api/suppliers/save",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8082",
+                  "path": [
+                    "api",
+                    "suppliers",
+                    "save"
+                  ]
+                },
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\"companyName\": \"Kinazi Cassava Plant\", \"contactPerson\": \"Uwimana\", \"tinNumber\": \"107890123\", \"phone\": \"0788666666\", \"email\": \"info@kinazi.rw\"}\r\n",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "get all suppliers",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:8082/api/suppliers/all",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8082",
+                  "path": [
+                    "api",
+                    "suppliers",
+                    "all"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "get by id",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:8082/api/suppliers/d1ba234f-bb09-4773-82d1-6e348b1aca95",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8082",
+                  "path": [
+                    "api",
+                    "suppliers",
+                    "d1ba234f-bb09-4773-82d1-6e348b1aca95"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "update supplier",
+              "request": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "http://localhost:8082/api/suppliers/update/d1ba234f-bb09-4773-82d1-6e348b1aca95",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8082",
+                  "path": [
+                    "api",
+                    "suppliers",
+                    "update",
+                    "d1ba234f-bb09-4773-82d1-6e348b1aca95"
+                  ]
+                },
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\"companyName\": \"Kinazi Cassava Plant\", \"contactPerson\": \"Uwimana\", \"tinNumber\": \"107890123\", \"phone\": \"0788666000\", \"email\": \"sales@kinazi.rw\"}\r\n",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "delete supplier",
+              "request": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:8082/api/suppliers/delete/d1ba234f-bb09-4773-82d1-6e348b1aca95",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8082",
+                  "path": [
+                    "api",
+                    "suppliers",
+                    "delete",
+                    "d1ba234f-bb09-4773-82d1-6e348b1aca95"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "save stockorder",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "http://localhost:8082/api/stock-orders/save",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8082",
+                  "path": [
+                    "api",
+                    "stock-orders",
+                    "save"
+                  ]
+                },
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\"orderDate\": \"2026-12-01\", \"status\": \"PLACED\", \"reference\": \"SO-011\", \"totalAmount\": 165000,\r\n \"supplier\": {\"id\": \"2da965e9-b54f-4d15-9f9d-d5349def860a\"}, \"storeKeeper\": {\"id\": \"1343cbb5-a55a-4fb5-92a7-0dc5fa0bff79\"}}\r\n",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "get all orders",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:8082/api/stock-orders/all",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8082",
+                  "path": [
+                    "api",
+                    "stock-orders",
+                    "all"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "get by id",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:8082/api/stock-orders/7686f317-ed81-4cc1-afb2-4845c378c84c",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8082",
+                  "path": [
+                    "api",
+                    "stock-orders",
+                    "7686f317-ed81-4cc1-afb2-4845c378c84c"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "update stockorder",
+              "request": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "http://localhost:8082/api/stock-orders/update/7686f317-ed81-4cc1-afb2-4845c378c84c",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8082",
+                  "path": [
+                    "api",
+                    "stock-orders",
+                    "update",
+                    "7686f317-ed81-4cc1-afb2-4845c378c84c"
+                  ]
+                },
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\"orderDate\": \"2026-12-01\", \"status\": \"PLACED\", \"reference\": \"SO-011\", \"totalAmount\": 185000,\r\n \"supplier\": {\"id\": \"2da965e9-b54f-4d15-9f9d-d5349def860a\"}, \"storeKeeper\": {\"id\": \"1343cbb5-a55a-4fb5-92a7-0dc5fa0bff79\"}}\r\n",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "response": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Part B",
+      "item": [
+        {
+          "name": "b1 contact person=Habimana",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8082/api/suppliers/by-contact-person?contactPerson=habimana",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8082",
+              "path": [
+                "api",
+                "suppliers",
+                "by-contact-person"
+              ],
+              "query": [
+                {
+                  "key": "contactPerson",
+                  "value": "habimana"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "b2 stock-orders=PLACED",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8082/api/stock-orders/by-status?status=PLACED",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8082",
+              "path": [
+                "api",
+                "stock-orders",
+                "by-status"
+              ],
+              "query": [
+                {
+                  "key": "status",
+                  "value": "PLACED"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "b3 stock-orders between 1st and 31st /10",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8082/api/stock-orders/between?start=2026-10-01&end=2026-10-31",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8082",
+              "path": [
+                "api",
+                "stock-orders",
+                "between"
+              ],
+              "query": [
+                {
+                  "key": "start",
+                  "value": "2026-10-01"
+                },
+                {
+                  "key": "end",
+                  "value": "2026-10-31"
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "PART C",
+      "item": [
+        {
+          "name": "c1 name=beverages",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8082/api/store-keepers/by-section?name=beverages",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8082",
+              "path": [
+                "api",
+                "store-keepers",
+                "by-section"
+              ],
+              "query": [
+                {
+                  "key": "name",
+                  "value": "beverages"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "c2 get free warehouses",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8082/api/warehouses/free",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8082",
+              "path": [
+                "api",
+                "warehouses",
+                "free"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "c3 unused section",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8082/api/sections/unused",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8082",
+              "path": [
+                "api",
+                "sections",
+                "unused"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "c4 suppliers of a store keeper",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8082/api/suppliers/of-store-keeper/1343cbb5-a55a-4fb5-92a7-0dc5fa0bff79",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8082",
+              "path": [
+                "api",
+                "suppliers",
+                "of-store-keeper",
+                "1343cbb5-a55a-4fb5-92a7-0dc5fa0bff79"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "c4 id doesn't exist",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8082/api/suppliers/of-store-keeper/11111111-1111-1111-1111-111111111111",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8082",
+              "path": [
+                "api",
+                "suppliers",
+                "of-store-keeper",
+                "11111111-1111-1111-1111-111111111111"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "PART D",
+      "item": [
+        {
+          "name": "d1=safe saving",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:8082/api/stock-orders/save",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8082",
+              "path": [
+                "api",
+                "stock-orders",
+                "save"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\"orderDate\": \"2026-10-01\", \"status\": \"RECEIVED\", \"reference\": \"SO-011\", \"totalAmount\": 130000,\r\n \"supplier\": {\"id\": \"3e820a57-8715-429e-a4e7-d65959e49209\"}, \"storeKeeper\": {\"id\": \"d5d16370-37b5-447a-8658-7ebe3a58790d\"}}\r\n",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "d2=status flow",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8082/api/stock-orders/4f069bc1-b82a-49be-be18-427ed2da120b/status?status=PLACED",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8082",
+              "path": [
+                "api",
+                "stock-orders",
+                "4f069bc1-b82a-49be-be18-427ed2da120b",
+                "status"
+              ],
+              "query": [
+                {
+                  "key": "status",
+                  "value": "PLACED"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "d3=add another section to a store keeper",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8082/api/store-keepers/d5d16370-37b5-447a-8658-7ebe3a58790d/sections/669c3c66-b07d-4590-94d7-6d27eb50ce26",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8082",
+              "path": [
+                "api",
+                "store-keepers",
+                "d5d16370-37b5-447a-8658-7ebe3a58790d",
+                "sections",
+                "669c3c66-b07d-4590-94d7-6d27eb50ce26"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "d4=move store keeper to another warehouse",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8082/api/store-keepers/d5d16370-37b5-447a-8658-7ebe3a58790d/warehouse?warehouseNumber=4",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8082",
+              "path": [
+                "api",
+                "store-keepers",
+                "d5d16370-37b5-447a-8658-7ebe3a58790d",
+                "warehouse"
+              ],
+              "query": [
+                {
+                  "key": "warehouseNumber",
+                  "value": "4"
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "PART E",
+      "item": [
+        {
+          "name": "E1=Received item",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:8082/api/received-items/save?stockOrderId=06757697-0d3e-4aa1-b101-8c5ead2cddbb",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8082",
+              "path": [
+                "api",
+                "received-items",
+                "save"
+              ],
+              "query": [
+                {
+                  "key": "stockOrderId",
+                  "value": "06757697-0d3e-4aa1-b101-8c5ead2cddbb"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\"productName\": \"Inyange Yoghurt 500ml\", \"remarks\": \"Two cartons damaged\", \"quantity\": 24}\r\n",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "E2= Received item history of a inyange supplier",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8082/api/received-items/supplier/102345678",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8082",
+              "path": [
+                "api",
+                "received-items",
+                "supplier",
+                "102345678"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "E3=delete and protecting",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8082/api/stock-orders/delete/3ef1546a-1d75-4276-afa9-fd56a76ab1c6",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8082",
+              "path": [
+                "api",
+                "stock-orders",
+                "delete",
+                "3ef1546a-1d75-4276-afa9-fd56a76ab1c6"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "PART F",
+      "item": [
+        {
+          "name": "F1=stock orders by status",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8082/api/stock-orders/stats/by-status",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8082",
+              "path": [
+                "api",
+                "stock-orders",
+                "stats",
+                "by-status"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "f2=storekeeper is absent",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8082/api/stock-orders/cancel-day?storeKeeperId=1343cbb5-a55a-4fb5-92a7-0dc5fa0bff79&date=2026-10-20",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8082",
+              "path": [
+                "api",
+                "stock-orders",
+                "cancel-day"
+              ],
+              "query": [
+                {
+                  "key": "storeKeeperId",
+                  "value": "1343cbb5-a55a-4fb5-92a7-0dc5fa0bff79"
+                },
+                {
+                  "key": "date",
+                  "value": "2026-10-20"
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "bonus part",
+      "item": [
+        {
+          "name": "stock management system dashboard",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8082/api/dashboard/summary",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8082",
+              "path": [
+                "api",
+                "dashboard",
+                "summary"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "stock orders page by page",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8082/api/stock-orders/page?page=0&size=5&sort=orderDate,desc",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8082",
+              "path": [
+                "api",
+                "stock-orders",
+                "page"
+              ],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "0"
+                },
+                {
+                  "key": "size",
+                  "value": "5"
+                },
+                {
+                  "key": "sort",
+                  "value": "orderDate,desc"
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ]
+}
